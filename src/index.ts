@@ -23,7 +23,9 @@ import {
   parseArguments,
 } from "./config/index.ts";
 import { initializeDatabase } from "./database/index.ts";
-
+import { laLigaProvider } from "./providers/laLigaProvider.ts";
+import { timeProvider } from "./providers/timeProvider.ts";
+import { tweetsProvider } from "./providers/tweetsProviders.ts";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -55,12 +57,8 @@ export function createAgent(
     modelProvider: character.modelProvider,
     evaluators: [],
     character,
-    plugins: [
-      bootstrapPlugin,
-      nodePlugin,
-      character.settings?.secrets?.WALLET_PUBLIC_KEY ? solanaPlugin : null,
-    ].filter(Boolean),
-    providers: [],
+    plugins: [].filter(Boolean),
+    providers: [timeProvider, laLigaProvider, tweetsProvider],
     actions: [],
     services: [],
     managers: [],
