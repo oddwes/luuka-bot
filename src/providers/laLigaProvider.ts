@@ -18,7 +18,7 @@ async function getUpcomingLaLigaGames() {
         .map((event: LaLigaEvent) => {
             const date = event.strTimestamp + 'UTC';
             const venue = event.strVenue;
-            return `${event.strEvent} at ${venue} on ${date}`;
+            return `${event.strEvent} ${venue ? `at ${venue}` : ''} on ${date}`;
         });
 
     const output = `LaLiga Schedule:\n${formattedEvents.join('\n')}`;

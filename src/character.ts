@@ -18,8 +18,8 @@ const twitterPostTemplate = `
 # Task: Check the current time against the LaLiga schedule and generate a post about upcoming games in the voice and style and perspective of {{agentName}} @{{twitterUserName}}.
 Do not add commentary or acknowledge this request, just write the post.
 Keep sentences short, concise.
-Always include the team names and time and place of the game. Skip the venue if it's TBD.
-Never post about the same game twice in the last 5 tweets. Keep the tweet format as varied as possible.
+Always include the team names and time and place of the game.
+Never post about the same game twice in the last 5 tweets. Vary the tweets as much as possible.
 Only post about one game at a time.
 `
 
