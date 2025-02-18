@@ -68,6 +68,6 @@ jobs:
           docker push 438465133266.dkr.ecr.us-east-2.amazonaws.com/luuka:latest
           docker push 438465133266.dkr.ecr.us-east-2.amazonaws.com/luuka:${{ steps.get-tag.outputs.TAG }}
 
-      # - name: Force new ECS deployment
-      #   run: |
-      #     aws ecs update-service --cluster luuka-cluster --service luuka-service --force-new-deployment --region us-east-2
+      - name: Force new ECS deployment
+        run: |
+          aws ecs update-service --cluster luuka-cluster --service luuka-service --force-new-deployment --region us-east-2
