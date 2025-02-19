@@ -6,9 +6,6 @@ import {
   stringToUuid,
   type Character,
 } from "@elizaos/core";
-import { bootstrapPlugin } from "@elizaos/plugin-bootstrap";
-import { createNodePlugin } from "@elizaos/plugin-node";
-import { solanaPlugin } from "@elizaos/plugin-solana";
 import fs from "fs";
 import net from "net";
 import path from "path";
@@ -35,8 +32,6 @@ export const wait = (minTime: number = 1000, maxTime: number = 3000) => {
   return new Promise((resolve) => setTimeout(resolve, waitTime));
 };
 
-let nodePlugin: any | undefined;
-
 export function createAgent(
   character: Character,
   db: any,
@@ -48,8 +43,6 @@ export function createAgent(
     "Creating runtime for character",
     character.name,
   );
-
-  nodePlugin ??= createNodePlugin();
 
   return new AgentRuntime({
     databaseAdapter: db,
